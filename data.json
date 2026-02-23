@@ -1,0 +1,27 @@
+{
+  "testimonials": [
+    { "text": "MANTAPPP POLLL! Sambelnya nendang banget 🔥", "author": "Arini Larasati" },
+    { "text": "Tempatnya asik buat arisan & nongkrong.", "author": "Bagas Pratama" },
+    { "text": "Restoran rasa bintang 5, harga merakyat!", "author": "Maya Citra" },
+    { "text": "Dimsum Mentai favorit anak-anak, lumer!", "author": "Rina Wijaya" },
+    { "text": "Pelayanan super ramah, serasa di rumah sendiri.", "author": "Dedi Kurniawan" },
+    { "text": "Ayam Penyet paling legend di Kranggan!", "author": "Sari" }
+  ],
+  "menu": [
+    {
+      "name": "Ayam Penyet Teras",
+      "price": "Rp 25.000",
+      "desc": "Ayam rempah dengan sambal ulek segar dadakan."
+    },
+    {
+      "name": "Boci (Bakso Aci) Spesial",
+      "price": "Rp 18.000",
+      "desc": "Gurih, pedas, lengkap dengan cuanki dan sukro."
+    },
+    {
+      "name": "Rice Bowl Ayam Kremes",
+      "price": "Rp 22.000",
+      "desc": "Praktis dan nikmat dengan kremesan melimpah."
+    }
+  ]
+}

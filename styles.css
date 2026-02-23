@@ -1,0 +1,118 @@
+:root {
+    --terracotta: #8E443D;
+    --wood-brown: #5D4037;
+    --cream: #F5F5DC;
+    --royal-gold: #C5A059;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Nav Styles */
+nav {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+nav.scrolled {
+    background: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Premium Buttons */
+.btn-terracotta-premium {
+    background-color: var(--terracotta);
+    color: white !important;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(142, 68, 61, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-terracotta-premium:hover {
+    background-color: var(--wood-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
+}
+
+.btn-royal-gold {
+    background-color: var(--royal-gold);
+    color: white !important;
+    padding: 1.25rem 3rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+    display: inline-block;
+}
+
+.btn-royal-gold:hover {
+    background-color: var(--wood-brown);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(93, 64, 55, 0.4);
+}
+
+/* Dynamic Menu Grid */
+.menu-card {
+    cursor: pointer;
+}
+
+.menu-card img {
+    will-change: transform;
+}
+
+/* Marquee */
+.animate-marquee {
+    animation: marquee 50s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Exit Popup */
+#exit-popup {
+    backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--terracotta);
+    border-radius: 10px;
+}
+
+/* Sticky Social */
+.fixed.bottom-6.right-6 a {
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+@media (max-width: 768px) {
+    .btn-terracotta-premium {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.875rem;
+    }
+}
+
