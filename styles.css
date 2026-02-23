@@ -5,30 +5,41 @@
     --royal-gold: #C5A059;
 }
 
+/* ========================
+   BASE
+======================== */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, .font-serif {
     font-family: 'Playfair Display', serif;
 }
 
-/* Nav Styles */
+/* ========================
+   NAV
+======================== */
 nav {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    will-change: background, box-shadow;
 }
 
 nav.scrolled {
     background: rgba(250, 249, 246, 0.95);
     backdrop-filter: blur(20px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
-/* Premium Buttons */
+/* ========================
+   BUTTONS
+======================== */
 .btn-terracotta-premium {
     background-color: var(--terracotta);
     color: white !important;
@@ -36,17 +47,18 @@ nav.scrolled {
     border-radius: 9999px;
     font-weight: 700;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 14px rgba(142, 68, 61, 0.3);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    will-change: transform;
 }
 
 .btn-terracotta-premium:hover {
     background-color: var(--wood-brown);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
+    box-shadow: 0 8px 24px rgba(93, 64, 55, 0.35);
 }
 
 .btn-royal-gold {
@@ -57,18 +69,21 @@ nav.scrolled {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+    transition: background-color 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    box-shadow: 0 8px 28px rgba(197, 160, 89, 0.3);
     display: inline-block;
+    will-change: transform;
 }
 
 .btn-royal-gold:hover {
     background-color: var(--wood-brown);
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(93, 64, 55, 0.4);
+    box-shadow: 0 14px 36px rgba(93, 64, 55, 0.35);
 }
 
-/* Dynamic Menu Grid */
+/* ========================
+   MENU CARDS
+======================== */
 .menu-card {
     cursor: pointer;
 }
@@ -77,24 +92,87 @@ nav.scrolled {
     will-change: transform;
 }
 
-/* Marquee */
+/* ========================
+   MARQUEE / TICKER
+======================== */
 .animate-marquee {
-    animation: marquee 50s linear infinite;
+    animation: marquee 55s linear infinite;
+    will-change: transform;
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
-/* Exit Popup */
+/* Pause on hover (optional UX) */
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* ========================
+   FEATURE CONTAINERS (Ambiance)
+======================== */
+#space .grid .flex {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
+}
+
+#space .grid .flex:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(142, 68, 61, 0.08);
+}
+
+/* ========================
+   EVENT CARDS
+======================== */
+#events .border {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    will-change: transform;
+}
+
+#events .border:hover {
+    transform: translateY(-4px);
+}
+
+/* ========================
+   POPUP (EXIT INTENT)
+======================== */
 #exit-popup {
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: opacity 0.35s ease;
 }
 
-/* Custom Scrollbar */
+#exit-popup-box {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+    will-change: transform, opacity;
+}
+
+/* ========================
+   GLOW BUTTON (Reservasi)
+======================== */
+@keyframes softGlow {
+    0%, 100% {
+        box-shadow: 0 0 0px rgba(160, 69, 59, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 22px rgba(160, 69, 59, 0.7);
+        transform: scale(1.03);
+    }
+}
+
+.glow-button {
+    animation: softGlow 3s ease-in-out infinite;
+    will-change: transform, box-shadow;
+}
+
+/* ========================
+   SCROLLBAR
+======================== */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 ::-webkit-scrollbar-track {
     background: var(--cream);
@@ -104,15 +182,51 @@ nav.scrolled {
     border-radius: 10px;
 }
 
-/* Sticky Social */
+/* ========================
+   WHATSAPP BUTTON
+======================== */
 .fixed.bottom-6.right-6 a {
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    will-change: transform;
 }
 
+.fixed.bottom-6.right-6 a:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+}
+
+/* ========================
+   REDUCE MOTION SUPPORT
+   (aksesibilitas & performa)
+======================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .animate-marquee {
+        animation: none;
+    }
+    .glow-button {
+        animation: none;
+    }
+}
+
+/* ========================
+   MOBILE
+======================== */
 @media (max-width: 768px) {
     .btn-terracotta-premium {
         padding: 0.6rem 1.2rem;
         font-size: 0.875rem;
     }
-}
 
+    /* Kurangi GSAP translate agar tidak berat di mobile */
+    #space .space-y-8,
+    #space .rounded-\[40px\] {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
