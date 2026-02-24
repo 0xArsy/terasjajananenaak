@@ -236,3 +236,89 @@ nav.scrolled {
         opacity: 1 !important;
     }
 }
+
+/* ========================
+   HERO SECTION OPTIMIZATION
+   ======================== */
+
+/* Container Hero */
+#home {
+    background-color: #000; /* Fallback jika gambar gagal dimuat */
+}
+
+/* Memperbaiki distorsi gambar: 
+   object-fit: cover akan memotong gambar secara proporsional 
+   daripada menariknya (stretch) 
+*/
+#home img {
+    object-fit: cover !important; /* Memaksa rasio aspek tetap asli */
+    object-position: center;     /* Fokus pada tengah gambar */
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    animation: slowZoom 20s infinite alternate; /* Efek premium sinematik */
+}
+
+/* Efek Overlay Gradasi agar Teks Terbaca Jelas */
+#home .absolute.inset-0.z-0::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Gradasi dari hitam pekat di bawah ke transparan di atas */
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    z-index: 1;
+}
+
+/* Animasi Slow Zoom untuk kesan Mewah */
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* ========================
+   MOBILE OPTIMIZATION (Premium Touch)
+   ======================== */
+@media (max-width: 768px) {
+    #hero-title {
+        font-size: 2.5rem; /* Ukuran font lebih proporsional di HP */
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    /* Membuat tombol memenuhi lebar layar di mobile agar mudah ditekan */
+    #hero-btns {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    #hero-btns a {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Efek dekorasi tambahan pada teks miring */
+.italic.text-\[\#F5F5DC\] {
+    position: relative;
+    display: inline-block;
+}
+
+.italic.text-\[\#F5F5DC\]::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(197, 160, 89, 0.2); /* Sentuhan warna Royal Gold halus */
+    z-index: -1;
+}
